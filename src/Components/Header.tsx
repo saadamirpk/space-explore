@@ -14,8 +14,8 @@ import MenuItem from "@mui/material/MenuItem";
 import MenuIcon from "@mui/icons-material/Menu";
 
 export default function Header() {
-  const pages = ["Home", "Rockets", "Flights"];
-  const profile = ["About Me", "GitHub", "LinkedIn", "Email"];
+  const pages = ["Home", "Spacex", "Starlink", "Launches", "Rockets"];
+  const profile = ["About", "GitHub", "LinkedIn", "Email"];
 
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null

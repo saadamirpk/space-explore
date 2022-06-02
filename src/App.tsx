@@ -1,6 +1,6 @@
 import React from "react";
 import AppBar from "./Components/Header";
-import HeroSection from "./Components/HeroSection";
+import HomePage from "./Pages/HomePage";
 
 function App() {
   /*
@@ -15,7 +15,7 @@ function App() {
   return (
     <div className="App">
       <AppBar />
-      <HeroSection />
+      <HomePage />
     </div>
   );
 }
