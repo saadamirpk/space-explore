@@ -12,10 +12,22 @@ import Avatar from "@mui/material/Avatar";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import MenuIcon from "@mui/icons-material/Menu";
+import { Link } from "react-router-dom";
 
 export default function Header() {
-  const pages = ["Home", "Spacex", "Starlink", "Launches", "Rockets"];
-  const profile = ["About", "GitHub", "LinkedIn", "Email"];
+  const pages = [
+    { text: "Home", url: "/" },
+    { text: "Spacex", url: "/spacex" },
+    { text: "Starlink", url: "/starlink" },
+    { text: "Launches", url: "/launches" },
+    { text: "Rockets", url: "/rockets" },
+  ];
+  const profile = [
+    { text: "About Me", url: "/me" },
+    { text: "GitHub", url: "https://www.github.com/saadamirpk" },
+    { text: "LinkedIn", url: "https://www.linkedin.com/in/saad-amir" },
+    { text: "Email", url: "mailto:saadamir.m@gmail.com" },
+  ];
 
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
@@ -73,9 +85,15 @@ export default function Header() {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
+                <Link
+                  to={page.url}
+                  key={page.text}
+                  style={{ textDecoration: "none" }}
+                >
+                  <MenuItem onClick={handleCloseNavMenu}>
+                    <Typography textAlign="center">{page.text}</Typography>
+                  </MenuItem>
+                </Link>
               ))}
             </Menu>
           </Box>
@@ -100,26 +118,34 @@ export default function Header() {
           </Typography>
           <Box sx={{ flexGrow: 0, display: { xs: "none", md: "flex" }, mr: 2 }}>
             {pages.map((page) => (
-              <Button
-                key={page}
-                //onClick
-                sx={{
-                  my: 2,
-                  color: "white",
-                  display: "block",
-                  "&:hover": {
-                    backgroundColor: "rgba(255, 255, 255, 0.3)",
-                  },
-                }}
+              <Link
+                to={page.url}
+                key={page.text}
+                style={{ textDecoration: "none" }}
               >
-                {page}
-              </Button>
+                <Button
+                  //onClick
+                  sx={{
+                    my: 2,
+                    color: "white",
+                    display: "block",
+                    "&:hover": {
+                      backgroundColor: "rgba(255, 255, 255, 0.3)",
+                    },
+                  }}
+                >
+                  {page.text}
+                </Button>
+              </Link>
             ))}
           </Box>
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Saad Amir">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Saad Amir" src="/static/images/avatar/2.jpg" />
+                <Avatar
+                  alt="Saad Amir"
+                  src="https://github.com/saadamirpk.png"
+                />
               </IconButton>
             </Tooltip>
             <Menu
@@ -138,11 +164,34 @@ export default function Header() {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {profile.map((p) => (
-                <MenuItem key={p}>
-                  <Typography textAlign="center">{p}</Typography>
-                </MenuItem>
-              ))}
+              {profile.map((p) => {
+                return p.text === "About Me" ? (
+                  <Link
+                    to={p.url}
+                    key={p.text}
+                    style={{ textDecoration: "none" }}
+                  >
+                    <MenuItem>
+                      <Typography textAlign="center" color="black">
+                        {p.text}
+                      </Typography>
+                    </MenuItem>
+                  </Link>
+                ) : (
+                  <a
+                    href={p.url}
+                    target="_blank"
+                    key={p.text}
+                    style={{ textDecoration: "none" }}
+                  >
+                    <MenuItem>
+                      <Typography textAlign="center" color="black">
+                        {p.text}
+                      </Typography>
+                    </MenuItem>
+                  </a>
+                );
+              })}
             </Menu>
           </Box>
         </Toolbar>

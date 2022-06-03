@@ -12,7 +12,13 @@ export default function HomePage() {
       <HeroSection />
       <br />
       <br />
-      <Typography variant="h2" component="h2" align="center" color="white">
+      <Typography
+        className="bring-up"
+        variant="h2"
+        component="h2"
+        align="center"
+        color="white"
+      >
         SPACEX On The Fly
       </Typography>
       <Typography
