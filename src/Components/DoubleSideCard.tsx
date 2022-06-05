@@ -1,6 +1,7 @@
 import { Button, Typography } from "@mui/material";
 import { motion } from "framer-motion";
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function DoubleSideCard(props: {
   dir: number;
@@ -43,9 +44,11 @@ export default function DoubleSideCard(props: {
           <br />
           <br />
           <br />
-          <Button variant="contained" color="secondary" size="small">
-            {props.title}
-          </Button>
+          <Link to={props.buttonLink} style={{ textDecoration: "none" }}>
+            <Button variant="contained" color="secondary" size="small">
+              {props.title}
+            </Button>
+          </Link>
         </div>
       </div>
       {props.dir == -100 && (

@@ -47,7 +47,7 @@ export default function HomePage() {
         subtitle="The company has launched more than 2,400 Starlink spacecraft to date, many of them this year; 10 of SpaceX's 18 launches in 2022 have been dedicated Starlink missions. Friday's launch marked the 45th Starlink mission since launches began in 2019, SpaceX sales manager Ian McCullough said during live launch commentary."
         desc="The company has launched more than 2,400 Starlink spacecraft to date, many of them this year; 10 of SpaceX's 18 launches in 2022 have been dedicated Starlink missions. Friday's launch marked the 45th Starlink mission since launches began in 2019, SpaceX sales manager Ian McCullough said during live launch commentary."
         cardimg={launchpic}
-        buttonLink="/starlink"
+        buttonLink="/launches"
       />
       <DoubleSideCard
         dir={100}
@@ -55,7 +55,7 @@ export default function HomePage() {
         subtitle="Most powerful operational rocket in the world by a factor of two. With the ability to lift into orbit nearly 64 metric tons (141,000 lb) Falcon Heavy can lift more than twice the payload of the next closest operational vehicle, the Delta IV Heavy. Falcon Heavy is composed of three Falcon 9 nine-engine cores whose 27 Merlin engines together generate more than 5 million pounds of thrust at liftoff, equal to approximately eighteen 747 aircraft."
         desc="The company has launched more than 2,400 Starlink spacecraft to date, many of them this year; 10 of SpaceX's 18 launches in 2022 have been dedicated Starlink missions. Friday's launch marked the 45th Starlink mission since launches began in 2019, SpaceX sales manager Ian McCullough said during live launch commentary."
         cardimg={rockets}
-        buttonLink="/starlink"
+        buttonLink="/rockets"
       />
     </div>
   );
