@@ -17,13 +17,11 @@ import { Link } from "react-router-dom";
 export default function Header() {
   const pages = [
     { text: "Home", url: "/" },
-    { text: "Spacex", url: "/spacex" },
     { text: "Starlink", url: "/starlink" },
     { text: "Launches", url: "/launches" },
     { text: "Rockets", url: "/rockets" },
   ];
   const profile = [
-    { text: "About Me", url: "/me" },
     { text: "GitHub", url: "https://www.github.com/saadamirpk" },
     { text: "LinkedIn", url: "https://www.linkedin.com/in/saad-amir" },
     { text: "Email", url: "mailto:saadamir.m@gmail.com" },
@@ -165,19 +163,7 @@ export default function Header() {
               onClose={handleCloseUserMenu}
             >
               {profile.map((p) => {
-                return p.text === "About Me" ? (
-                  <Link
-                    to={p.url}
-                    key={p.text}
-                    style={{ textDecoration: "none" }}
-                  >
-                    <MenuItem>
-                      <Typography textAlign="center" color="black">
-                        {p.text}
-                      </Typography>
-                    </MenuItem>
-                  </Link>
-                ) : (
+                return (
                   <a
                     href={p.url}
                     target="_blank"

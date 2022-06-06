@@ -88,7 +88,7 @@ export default function LaunchCard(props: any) {
                 <th>Company</th>
               </tr>
               <tr>
-                <td>${rocket.cost_per_launch} million</td>
+                <td>${rocket.cost_per_launch / 100000} million</td>
                 <td>{rocket.company}</td>
               </tr>
             </table>
