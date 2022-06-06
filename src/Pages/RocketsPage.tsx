@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import HeroSectionSimple from "../Components/HeroSectionSimple";
 import rocketback from "../Images/rocket-back.jpg";
 import RocketCard from "../Components/RocketCard";
@@ -6,38 +6,44 @@ import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 
 export default function RocketsPage() {
-  const cardData = [
-    {
-      title: "Falcon Heavy",
-      desc: "With the ability to lift into orbit over 54 metric tons a mass equivalent to a 737 jetliner loaded with passengers, crew, luggage and fuel--Falcon Heavy can lift more than twice the payload of the next closest operational vehicle, the Delta IV Heavy, at one-third the cost.",
-      img: "https://farm5.staticflickr.com/4599/38583829295_581f34dd84_b.jpg",
-    },
-    {
-      title: "Dragon Delight",
-      desc: "With the ability to lift into orbit over 54 metric tons a mass equivalent to a 737 jetliner loaded with passengers, crew, luggage and fuel--Falcon Heavy can lift more than twice the payload of the next closest operational vehicle, the Delta IV Heavy, at one-third the cost.",
-      img: "https://farm5.staticflickr.com/4711/40126461411_aabc643fd8_b.jpg",
-    },
-    {
-      title: "Eagle Light",
-      desc: "With the ability to lift into orbit over 54 metric tons a mass equivalent to a 737 jetliner loaded with passengers, crew, luggage and fuel--Falcon Heavy can lift more than twice the payload of the next closest operational vehicle, the Delta IV Heavy, at one-third the cost.",
-      img: "https://farm5.staticflickr.com/4711/40126461411_aabc643fd8_b.jpg",
-    },
-    {
-      title: "Storm Trooper",
-      desc: "With the ability to lift into orbit over 54 metric tons a mass equivalent to a 737 jetliner loaded with passengers, crew, luggage and fuel--Falcon Heavy can lift more than twice the payload of the next closest operational vehicle, the Delta IV Heavy, at one-third the cost.",
-      img: "https://farm5.staticflickr.com/4645/38583830575_3f0f7215e6_b.jpg",
-    },
-    {
-      title: "Space Delight",
-      desc: "With the ability to lift into orbit over 54 metric tons a mass equivalent to a 737 jetliner loaded with passengers, crew, luggage and fuel--Falcon Heavy can lift more than twice the payload of the next closest operational vehicle, the Delta IV Heavy, at one-third the cost.",
-      img: "https://farm5.staticflickr.com/4645/38583830575_3f0f7215e6_b.jpg",
-    },
-  ];
+  const [rocketsData, setrocketsData] = useState<any>([]);
+  const [loading, setLoading] = useState(true);
 
-  const DisplayRockets = cardData.map((rocket) => {
+  useEffect(() => {
+    (async () => {
+      await fetchRockets();
+    })();
+  }, []);
+
+  useEffect(() => {
+    console.log(rocketsData);
+  }, [rocketsData]);
+
+  async function fetchRockets() {
+    fetch("https://api.spacexdata.com/v4/rockets")
+      .then((res) => res.json())
+      .then((res) => {
+        setrocketsData(res);
+        setLoading(false);
+      });
+  }
+
+  const DisplayRockets = rocketsData.map((rocket: any) => {
     return (
-      <Grid item sm={12} md={6}>
-        <RocketCard title={rocket.title} desc={rocket.desc} img={rocket.img} />
+      <Grid item sm={12} md={6} key={rocket.id}>
+        <RocketCard
+          title={rocket.name}
+          desc={rocket.description}
+          img={rocket.flickr_images[0]}
+          success={rocket.success_rate_pct}
+          boosters={rocket.boosters}
+          height={rocket.height.meters}
+          diameter={rocket.diameter.meters}
+          cost={rocket.cost_per_launch / 100000}
+          flight={rocket.first_flight}
+          mass={rocket.mass.kg}
+          company={rocket.company}
+        />
       </Grid>
     );
   });
@@ -53,7 +59,7 @@ export default function RocketsPage() {
           marginTop={"20px"}
           spacing={1}
         >
-          {DisplayRockets}
+          {loading ? <p>Loading...</p> : DisplayRockets}
         </Grid>
       </Box>
     </>

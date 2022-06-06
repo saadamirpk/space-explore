@@ -1,11 +1,7 @@
 import React from "react";
 import "../css/rocketcard.css";
 
-export default function RocketCard(props: {
-  title: string;
-  desc: string;
-  img: string;
-}) {
+export default function RocketCard(props: any) {
   return (
     <div className="wrapper">
       <div className="container">
@@ -35,32 +31,32 @@ export default function RocketCard(props: {
               <th>First Flight</th>
             </tr>
             <tr>
-              <td>100%</td>
-              <td>2018-02-06</td>
+              <td>{props.success}%</td>
+              <td>{props.flight}</td>
             </tr>
             <tr>
               <th>Boosters</th>
               <th>Mass</th>
             </tr>
             <tr>
-              <td>2</td>
-              <td>1420788 kg</td>
+              <td>{props.boosters}</td>
+              <td>{props.mass} kg</td>
             </tr>
             <tr>
               <th>Height</th>
               <th>Diameter</th>
             </tr>
             <tr>
-              <td>70 meters</td>
-              <td>12.2 meters</td>
+              <td>{props.height} meters</td>
+              <td>{props.diameter} meters</td>
             </tr>
             <tr>
               <th>Cost Per Launch</th>
               <th>Company</th>
             </tr>
             <tr>
-              <td>$90 million</td>
-              <td>SpaceX</td>
+              <td>${props.cost} million</td>
+              <td>{props.company}</td>
             </tr>
           </table>
         </div>

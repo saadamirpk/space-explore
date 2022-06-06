@@ -63,6 +63,12 @@ code {
   padding: 30px;
 }
 
+.parallax > .scrollIcon {
+  position: absolute;
+  bottom: 100px;
+  left: 50%;
+}
+
 .display-img-holder > .display-img {
   width: 60%;
   margin: 0 auto;
