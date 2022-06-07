@@ -1,6 +1,7 @@
 import React, { ReactNode } from "react";
 import { Grid, Box, Button, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 export default function DisplaySection(props: {
   left: boolean;
@@ -30,7 +31,11 @@ export default function DisplaySection(props: {
               sx={{ display: { sm: "none", md: "block" } }}
             >
               <div className="display-img-holder">
-                <img
+                <motion.img
+                  initial={{ x: 100, opacity: 0 }}
+                  whileInView={{ x: 0, opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ ease: "easeIn", duration: 1 }}
                   className="display-img"
                   src={props.display}
                   alt="Display Image"
@@ -38,57 +43,71 @@ export default function DisplaySection(props: {
               </div>
             </Grid>
             <Grid item sm={12} md={6}>
-              <Typography variant="h2" component="h2">
-                {props.title}
-              </Typography>
-              <br />
-              <br />
-              <Typography variant="body2" component="span">
-                {props.subtitle}
-              </Typography>
-              <br />
-              <br />
-              <Typography
-                variant="body2"
-                component="span"
-                textAlign={"justify"}
+              <motion.div
+                initial={{ x: 100, opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ ease: "easeIn", duration: 1 }}
               >
-                {props.desc}
-              </Typography>
-              <br />
-              <br />
-              <br />
-              <Link to={props.buttonLink} style={{ textDecoration: "none" }}>
-                <Button className="btn" variant="contained" size="large">
+                <Typography variant="h2" component="h2">
                   {props.title}
-                </Button>
-              </Link>
+                </Typography>
+                <br />
+                <br />
+                <Typography variant="body2" component="span">
+                  {props.subtitle}
+                </Typography>
+                <br />
+                <br />
+                <Typography
+                  variant="body2"
+                  component="span"
+                  textAlign={"justify"}
+                >
+                  {props.desc}
+                </Typography>
+                <br />
+                <br />
+                <br />
+                <Link to={props.buttonLink} style={{ textDecoration: "none" }}>
+                  <Button className="btn" variant="contained" size="large">
+                    {props.title}
+                  </Button>
+                </Link>
+              </motion.div>
             </Grid>
           </>
         ) : (
           <>
             <Grid item sm={12} md={6}>
-              <Typography variant="h2" component="h2">
-                {props.title}
-              </Typography>
-              <br />
-              <br />
-              <Typography variant="body2" component="span">
-                {props.subtitle}
-              </Typography>
-              <br />
-              <br />
-              <Typography variant="body2" component="span">
-                {props.desc}
-              </Typography>
-              <br />
-              <br />
-              <br />
-              <Link to={props.buttonLink} style={{ textDecoration: "none" }}>
-                <Button className="btn" variant="contained" size="large">
+              <motion.div
+                initial={{ x: -100, opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ ease: "easeIn", duration: 1 }}
+              >
+                <Typography variant="h2" component="h2">
                   {props.title}
-                </Button>
-              </Link>
+                </Typography>
+                <br />
+                <br />
+                <Typography variant="body2" component="span">
+                  {props.subtitle}
+                </Typography>
+                <br />
+                <br />
+                <Typography variant="body2" component="span">
+                  {props.desc}
+                </Typography>
+                <br />
+                <br />
+                <br />
+                <Link to={props.buttonLink} style={{ textDecoration: "none" }}>
+                  <Button className="btn" variant="contained" size="large">
+                    {props.title}
+                  </Button>
+                </Link>
+              </motion.div>
             </Grid>
             <Grid
               item
@@ -97,7 +116,11 @@ export default function DisplaySection(props: {
               sx={{ display: { sm: "none", md: "block" } }}
             >
               <div className="display-img-holder">
-                <img
+                <motion.img
+                  initial={{ x: -100, opacity: 0 }}
+                  whileInView={{ x: 0, opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ ease: "easeIn", duration: 1 }}
                   className="display-img"
                   src={props.display}
                   alt="Display Image"
