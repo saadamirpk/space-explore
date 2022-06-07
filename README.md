@@ -1,9 +1,8 @@
-# Simple Expense Tracker with React
+# SpaceX API - Integrated into visual experience with React
 
 [View live Demo](https://saadamirpk.github.io/space-explore/)
 
 ![Site Gif](/src/space-gif.gif)
-![Site Gif](/src/space2-gif.gif)
 
 ## Features
 - Live Map of StarLink Satellites
