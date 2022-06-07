@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/space-explore/static/css/main.a4d10026.css",
-    "main.js": "/space-explore/static/js/main.adf83490.js",
+    "main.js": "/space-explore/static/js/main.fca59d2d.js",
     "static/js/787.65e5eacd.chunk.js": "/space-explore/static/js/787.65e5eacd.chunk.js",
     "static/media/back.png": "/space-explore/static/media/back.2d992218738e0ac1c3b5.png",
     "static/media/starlink.jpg": "/space-explore/static/media/starlink.8ab498a7dbd7b357917e.jpg",
@@ -20,11 +20,11 @@
     "static/media/launches-back.jpg": "/space-explore/static/media/launches-back.3422e504cd3b9a156c36.jpg",
     "index.html": "/space-explore/index.html",
     "main.a4d10026.css.map": "/space-explore/static/css/main.a4d10026.css.map",
-    "main.adf83490.js.map": "/space-explore/static/js/main.adf83490.js.map",
+    "main.fca59d2d.js.map": "/space-explore/static/js/main.fca59d2d.js.map",
     "787.65e5eacd.chunk.js.map": "/space-explore/static/js/787.65e5eacd.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.a4d10026.css",
-    "static/js/main.adf83490.js"
+    "static/js/main.fca59d2d.js"
   ]
 }
