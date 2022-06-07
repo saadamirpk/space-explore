@@ -37,6 +37,10 @@ function App() {
               path="/"
               element={<HomePage offY={offsetY} offX={offsetX} />}
             ></Route>
+            <Route
+              path="/space-explore"
+              element={<HomePage offY={offsetY} offX={offsetX} />}
+            ></Route>
             <Route path="/me" element={<AboutMePage />}></Route>
             <Route path="/spacex" element={<AboutSpaceXPage />}></Route>
             <Route path="/rockets" element={<RocketsPage />}></Route>
