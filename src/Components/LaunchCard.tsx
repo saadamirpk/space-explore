@@ -11,10 +11,6 @@ export default function LaunchCard(props: any) {
     })();
   }, []);
 
-  useEffect(() => {
-    console.log(rocket);
-  }, [rocket]);
-
   async function fetchRocket() {
     fetch(`https://api.spacexdata.com/v4/rockets/${props.rocket}`)
       .then((res) => res.json())

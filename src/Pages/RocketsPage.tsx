@@ -15,10 +15,6 @@ export default function RocketsPage() {
     })();
   }, []);
 
-  useEffect(() => {
-    console.log(rocketsData);
-  }, [rocketsData]);
-
   async function fetchRockets() {
     fetch("https://api.spacexdata.com/v4/rockets")
       .then((res) => res.json())
